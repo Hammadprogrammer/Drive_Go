@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveGo Pakistan — Reliable Car Rentals</title>
+    <meta name="description" content="Rent reliable cars, SUVs, luxury vehicles and family cars across Pakistan with DriveGo. Easy booking, flexible rental options and WhatsApp support.">
+    
+    <meta property="og:title" content="DriveGo Pakistan — Reliable Car Rentals">
+    <meta property="og:description" content="Rent SUVs, luxury cars, sedans, and vans across Pakistan with easy WhatsApp booking.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      "name": "DriveGo Car Rentals",
+    "description": "DriveGo provides reliable, comfortable and affordable rental vehicles across Pakistan.",
+    "telephone": "+923483921807",
+    "email": "info@drivego.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Main Boulevard, Gulberg III",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "openingHours": "Mo-Su 00:00-24:00",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM & CSS VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-dark: #0f1115;
+            --bg-card: #181b20;
+            --bg-light: #f4f6f9;
+            --text-main: #1a1d20;
+            --text-muted: #6c757d;
+            --text-light: #f8f9fa;
+            --accent: #ff3e3e;
+            --accent-hover: #e03232;
+            --accent-glow: rgba(255, 62, 62, 0.25);
+            --border-color: #e2e8f0;
+            --border-dark: #2a2e35;
+            --glass-bg: rgba(15, 17, 21, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-lg: 0 16px 32px rgba(0,0,0,0.2);
+            --transition: all 0.3s ease;
+            --font-main: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        /* RESET & BASE STYLES */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-main);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            border: none;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* SCROLL PROGRESS INDICATOR */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s ease-out;
+        }
+
+        /* UTILITY CLASSES */
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .section-bg-alt {
+            background-color: var(--bg-light);
+        }
+
+        .section-dark {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .section-dark .section-desc {
+            color: #a0aec0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: var(--bg-dark);
+            border-color: #ffffff;
+        }
+
+        .btn-dark {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+        }
+
+        .btn-dark:hover {
+            background-color: #2a2e35;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background: #e6f4ea;
+            color: #137333;
+        }
+
+        .badge-warning {
+            background: #fef7e0;
+            color: #b06000;
+        }
+
+        .demo-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #ffeeba;
+        }
+
+        /* ==========================================================================
+           2. NAVBAR
+           ========================================================================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-icon-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-dark);
+            transition: var(--transition);
+        }
+
+        .nav-icon-link:hover {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            color: var(--bg-dark);
+        }
+
+        /* ==========================================================================
+           3. HERO SECTION & SEARCH PANEL
+           ========================================================================== */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            background: linear-gradient(rgba(15, 17, 21, 0.65), rgba(15, 17, 21, 0.75)), 
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            padding: 100px 0 140px 0;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            margin-bottom: 40px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* HERO SEARCH PANEL */
+        .search-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+            color: var(--text-main);
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-main);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+        }
+
+        /* ==========================================================================
+           4. QUICK STATS
+           ========================================================================== */
+        .stats-section {
+            background: var(--bg-dark);
+            color: #ffffff;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-item p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================================
+           5. CAR CATALOG & FILTERS
+           ========================================================================== */
+        .filter-wrapper {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .car-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .car-image-box {
+            position: relative;
+            height: 200px;
+            background: #f8f9fa;
+        }
+
+        .car-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+        }
+
+        .car-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .car-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .car-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .car-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 12px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .car-spec-item i {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--bg-dark);
+        }
+
+        .car-price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            margin-top: auto;
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--bg-dark);
+        }
+
+        .car-price span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .car-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* ==========================================================================
+           6. CALCULATOR & SERVICES
+           ========================================================================== */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            color: #ffffff;
+        }
+
+        .calc-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .calc-form .form-control {
+            background: #23272f;
+            border-color: var(--border-dark);
+            color: #ffffff;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            background: #23272f;
+            padding: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .calc-summary {
+            background: #23272f;
+            border-radius: var(--radius-md);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .summary-total {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            border-bottom: none;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 62, 62, 0.1);
+            color: var(--accent);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* ==========================================================================
+           7. TIMELINE / HOW IT WORKS
+           ========================================================================== */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            position: relative;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: #ffffff;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 1.2rem;
+            box-shadow: 0 0 0 6px rgba(255, 62, 62, 0.2);
+        }
+
+        /* ==========================================================================
+           8. LUXURY / SUV PROMO & LOCATIONS
+           ========================================================================== */
+        .banner-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .banner-item {
+            position: relative;
+            padding: 80px 40px;
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .location-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .location-img {
+            height: 160px;
+            width: 100%;
+        }
+
+        .location-body {
+            padding: 20px;
+        }
+
+        /* ==========================================================================
+           9. REVIEWS, FAQ & BLOG
+           ========================================================================== */
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .customer-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 16px auto;
+            border: 3px solid var(--accent);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .slider-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* FAQ ACCORDION */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-header {
+            padding: 18px 24px;
+            background: #ffffff;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-body {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-body {
+            padding: 18px 24px;
+            max-height: 200px;
+        }
+
+        /* BLOG GRID */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .blog-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .blog-img {
+            height: 180px;
+            width: 100%;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* ==========================================================================
+           10. GALLERY & LIGHTBOX
+           ========================================================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery-item {
+            height: 180px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 85%;
+            max-height: 80vh;
+            border-radius: var(--radius-sm);
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            padding: 10px;
+        }
+
+        .lightbox-close { top: 20px; right: 30px; }
+        .lightbox-prev { left: 30px; }
+        .lightbox-next { right: 30px; }
+
+        /* ==========================================================================
+           11. MODAL & CONTACT/FOOTER
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-container {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 30px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            background: none;
+            cursor: pointer;
+        }
+
+        /* CONTACT SECTION */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--radius-md);
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail-item i {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 70px 0 20px 0;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: #23272f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-dark);
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        /* BACK TO TOP */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--accent);
+            color: #ffffff;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+        }
+
+        #back-to-top.visible {
+            display: flex;
+        }
+
+        /* ALERT TOAST */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #28a745;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-md);
+            z-index: 3000;
+            display: none;
+        }
+
+        /* ==========================================================================
+           12. RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .banner-split, .calculator-container, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: #ffffff;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .search-panel {
+                margin-top: 20px;
+            }
+
+            .car-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <div class="demo-notice">
+        <strong>Demo Notice:</strong> DriveGo Car Rentals is a fictional demonstration agency. All vehicles, rates, and locations shown are for sample preview purposes.
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                🚗 Drive<span>Go</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#cars" class="nav-link">Cars</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#locations" class="nav-link">Locations</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                    <a href="tel:+923483921807" class="nav-icon-link" title="Call Us"><i class="fas fa-phone"></i></a>
+                    <a href="https://wa.me/923483921807" target="_blank" class="nav-icon-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#booking" class="btn btn-primary" style="display: none; @media(min-width: 576px){display:inline-flex;}">Book a Car</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Rent the Perfect Car for Your Journey</h1>
+                <p class="hero-desc">Choose from a wide range of reliable vehicles and enjoy a simple, comfortable and flexible rental experience.</p>
+                <div class="hero-btns">
+                    <a href="#cars" class="btn btn-primary">Browse Cars</a>
+                    <a href="#booking" class="btn btn-secondary">Book Now</a>
+                </div>
+            </div>
+              </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Vehicles</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="20">0</h3>
+                    <p>Locations</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="10000">0</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Customer Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="cars">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Vehicle Fleet</span>
+                <h2 class="section-title">Choose Your Perfect Ride</h2>
+                <p class="section-desc">Sample daily rates in Pakistani rupees with clear rental terms and no hidden fees.</p>
+            </div>
+
+            <div class="filter-wrapper">
+                <div class="filter-grid">
+                    <div class="form-group">
+                        <label>Vehicle Type</label>
+                        <select id="filter-type" class="form-control">
+                            <option value="All">All Types</option>
+                            <option value="Economy">Economy</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Luxury">Luxury</option>
+                            <option value="Van">Van</option>
+                            <option value="Electric">Electric</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Transmission</label>
+                        <select id="filter-trans" class="form-control">
+                            <option value="All">All Transmissions</option>
+                            <option value="Automatic">Automatic</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Fuel Type</label>
+                        <select id="filter-fuel" class="form-control">
+                            <option value="All">All Fuels</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="Electric">Electric</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price Range</label>
+                        <select id="filter-price" class="form-control">
+                            <option value="All">All Prices</option>
+                                <option value="under-50">Under PKR 5,000</option>
+                                    <option value="50-100">PKR 5,000 – 10,000</option>
+                                    <option value="100-plus">PKR 10,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Sort By</label>
+                        <select id="sort-by" class="form-control">
+                            <option value="recommended">Recommended</option>
+                            <option value="low-high">Price: Low to High</option>
+                            <option value="high-low">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cars-grid" id="cars-container">
+                </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-dark" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Cost Estimator</span>
+                <h2 class="section-title" style="color: #ffffff;">Rental Price Calculator</h2>
+                <p class="section-desc">Estimate your total rental cost instantly before booking.</p>
+            </div>
+
+            <div class="calculator-container">
+                <form class="calc-form" id="calc-form">
+                    <div class="form-group">
+                        <label>Select Vehicle</label>
+                        <select id="calc-vehicle" class="form-control">
+                            <option value="4000">Toyota Yaris (PKR 4,000/day)</option>
+                            <option value="5000">Toyota Corolla (PKR 5,000/day)</option>
+                            <option value="5500">Honda Civic (PKR 5,500/day)</option>
+                            <option value="8500">Kia Sportage (PKR 8,500/day)</option>
+                            <option value="9000">Hyundai Tucson (PKR 9,000/day)</option>
+                            <option value="11000">Toyota Fortuner (PKR 11,000/day)</option>
+                            <option value="15000">Mercedes-Benz E-Class (PKR 15,000/day)</option>
+                            <option value="12000">Toyota Hiace (PKR 12,000/day)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pick-up Date</label>
+                        <input type="date" id="calc-pickup" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Return Date</label>
+                        <input type="date" id="calc-return" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Optional Extras</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" class="calc-extra" value="1000"> GPS (PKR 1,000/day)</label>
+                            <label class="checkbox-item"><input type="checkbox" class="calc-extra" value="1500"> Child Seat (PKR 1,500/day)</label>
+                            <label class="checkbox-item"><input type="checkbox" class="calc-extra" value="2000"> Addl. Driver (PKR 2,000/day)</label>
+                            <label class="checkbox-item"><input type="checkbox" class="calc-extra" value="2500"> Insurance (PKR 2,500/day)</label>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="calc-summary">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Estimated Breakdown</h3>
+                        <div class="summary-row">
+                            <span>Rental Days:</span>
+                            <span id="summary-days">1</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Car Rental Base:</span>
+                            <span id="summary-base">PKR 4,000</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Optional Extras Total:</span>
+                            <span id="summary-extras">PKR 0</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Estimated Total:</span>
+                            <span id="summary-total">PKR 4,000</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #a0aec0; margin-top: 20px;">
+                        Disclaimer: Final rental price may vary depending on vehicle availability, dates, taxes and rental terms.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What We Offer</span>
+                <h2 class="section-title">Our Rental Services</h2>
+                <p class="section-desc">Tailored mobility solutions for individual, family, and business needs.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calendar-day"></i></div>
+                    <h3>Daily Car Rental</h3>
+                    <p>Flexible short-term rentals designed for local errands or daily commuting needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calendar-week"></i></div>
+                    <h3>Weekly Rental</h3>
+                    <p>Better discounted options for medium-term trips, vacations, and extended travel.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Monthly Rental</h3>
+                    <p>Convenient long-term vehicle rentals with hassle-free maintenance included.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-plane-arrival"></i></div>
+                    <h3>Airport Transfer</h3>
+                    <p>Punctual and comfortable airport pickup and drop-off transport services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Corporate Rental</h3>
+                    <p>Reliable vehicles and streamlined billing for executive and business travel.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Chauffeur Service</h3>
+                    <p>Professional driver services for a stress-free and luxury travel experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-glass-cheers"></i></div>
+                    <h3>Wedding Cars</h3>
+                    <p>Premium vehicles and luxury sedans to add elegance to your special day.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bus"></i></div>
+                    <h3>Fleet Rental</h3>
+                    <p>Multiple synchronized vehicles for corporate events, tours, and large groups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-alt" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">DriveGo Advantage</span>
+                <h2 class="section-title">Why Choose DriveGo?</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car-side"></i></div>
+                    <h3>Wide Vehicle Selection</h3>
+                    <p>Cars for every budget and travel requirement, from economy hatchbacks to SUVs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Flexible Rentals</h3>
+                    <p>Daily, weekly, and monthly rental terms tailored to your personal timeline.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tags"></i></div>
+                    <h3>Transparent Pricing</h3>
+                    <p>Clear rental terms and upfront pricing with no unexpected hidden charges.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Clean & Maintained</h3>
+                    <p>All vehicles are rigorously inspected, sanitized, and routinely serviced.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <h3>Easy Booking</h3>
+                    <p>Simple, intuitive online reservation process with instant confirmation requests.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated road assistance and customer service available whenever you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Simple Process</span>
+                <h2 class="section-title">How It Works</h2>
+            </div>
+
+            <div class="timeline-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Choose Your Car</h3>
+                    <p>Browse our available vehicles and pick the model matching your style.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>Select Your Dates</h3>
+                    <p>Pick your preferred pick-up and return schedule with convenient times.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Submit Booking</h3>
+                    <p>Provide contact details and submit your reservation request instantly.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">04</div>
+                    <h3>Hit The Road</h3>
+                    <p>Collect your key at our station or airport terminal and enjoy your ride!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-alt">
+        <div class="container">
+            <div class="banner-split">
+                <div class="banner-item" style="background-image: url('https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80');">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <span class="badge badge-warning" style="margin-bottom: 10px;">Premium Fleet</span>
+                        <h2>Arrive in Style</h2>
+                        <p>Make your business trip or special occasion unforgettable with Mercedes-Benz, BMW, Audi, and Lexus vehicles.</p>
+                        <a href="#cars" class="btn btn-primary" style="margin-top: 15px;">Explore Luxury Cars</a>
+                    </div>
+                </div>
+                <div class="banner-item" style="background-image: url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80');">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <span class="badge badge-success" style="margin-bottom: 10px;">Family & Trips</span>
+                        <h2>Ready For Your Next Adventure?</h2>
+                        <p>Spacious interiors, family-friendly SUVs, large luggage capacity, and high comfort for long-distance driving.</p>
+                        <a href="#cars" class="btn btn-primary" style="margin-top: 15px;">Explore SUVs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="locations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Network</span>
+                <h2 class="section-title">Find a DriveGo Location</h2>
+                <p class="section-desc">Sample rental offices operational in major cities globally.</p>
+            </div>
+
+            <div class="locations-grid">
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=500&q=80" alt="Karachi Office" class="location-img">
+                    <div class="location-body">
+                        <h3>Karachi</h3>
+                        <p><i class="far fa-clock"></i> 24/7 Operational</p>
+                        <p><i class="fas fa-car"></i> 120+ Vehicles Available</p>
+                        <a href="#contact" class="btn btn-dark btn-block" style="margin-top: 12px;">Get Directions</a>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=500&q=80" alt="Lahore Office" class="location-img">
+                    <div class="location-body">
+                        <h3>Lahore</h3>
+                        <p><i class="far fa-clock"></i> 08:00 AM - 11:00 PM</p>
+                        <p><i class="fas fa-car"></i> 95+ Vehicles Available</p>
+                        <a href="#contact" class="btn btn-dark btn-block" style="margin-top: 12px;">Get Directions</a>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=500&q=80" alt="Islamabad Office" class="location-img">
+                    <div class="location-body">
+                        <h3>Islamabad</h3>
+                        <p><i class="far fa-clock"></i> 24/7 Operational</p>
+                        <p><i class="fas fa-car"></i> 80+ Vehicles Available</p>
+                        <a href="#contact" class="btn btn-dark btn-block" style="margin-top: 12px;">Get Directions</a>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=500&q=80" alt="Peshawar Office" class="location-img">
+                    <div class="location-body">
+                        <h3>Peshawar</h3>
+                        <p><i class="far fa-clock"></i> 08:00 AM - 11:00 PM</p>
+                        <p><i class="fas fa-car"></i> 60+ Vehicles Available</p>
+                        <a href="#contact" class="btn btn-dark btn-block" style="margin-top: 12px;">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-alt" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Testimonials</span>
+                <h2 class="section-title">What Our Customers Say</h2>
+            </div>
+
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Customer" class="customer-avatar">
+                        <p style="font-style: italic; font-size: 1.1rem;">"Extremely seamless experience. The SUV was clean, well-maintained, and picked up directly at the airport without delay!"</p>
+                        <h4 style="margin-top: 10px;">Sarah Jenkins</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Rented Toyota Fortuner • Lahore</span>
+                    </div>
+                    <div class="testimonial-slide">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Customer" class="customer-avatar">
+                        <p style="font-style: italic; font-size: 1.1rem;">"Top notch corporate rental service. The Mercedes E-Class made an incredible impression for my business meeting trip."</p>
+                        <h4 style="margin-top: 10px;">David Miller</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Rented Mercedes E-Class • Islamabad</span>
+                    </div>
+                    <div class="testimonial-slide">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Customer" class="customer-avatar">
+                        <p style="font-style: italic; font-size: 1.1rem;">"Highly recommended! Honest pricing, no unexpected hidden fees, and very helpful 24/7 customer support team."</p>
+                        <h4 style="margin-top: 10px;">Ahmed Khan</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Rented Honda Civic • Karachi</span>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <div class="slider-btn" id="prev-review"><i class="fas fa-chevron-left"></i></div>
+                    <div class="slider-btn" id="next-review"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Help & Information</span>
+                <h2 class="section-title">Rental Requirements & FAQ</h2>
+            </div>
+
+            <div class="services-grid" style="margin-bottom: 50px;">
+                <div class="service-card" style="padding: 20px;">
+                    <h4><i class="fas fa-id-card" style="color: var(--accent);"></i> Valid Driver's License</h4>
+                    <p style="font-size: 0.9rem;">Must hold a valid national license or International Driving Permit (IDP).</p>
+                </div>
+                <div class="service-card" style="padding: 20px;">
+                    <h4><i class="fas fa-passport" style="color: var(--accent);"></i> Identification</h4>
+                    <p style="font-size: 0.9rem;">Valid passport or official government-issued photo ID required upon collection.</p>
+                </div>
+                <div class="service-card" style="padding: 20px;">
+                    <h4><i class="fas fa-user-check" style="color: var(--accent);"></i> Age Requirement</h4>
+                    <p style="font-size: 0.9rem;">Minimum driver age is 21 years (additional surcharges may apply under 25).</p>
+                </div>
+                <div class="service-card" style="padding: 20px;">
+                    <h4><i class="fas fa-credit-card" style="color: var(--accent);"></i> Security Deposit</h4>
+                    <p style="font-size: 0.9rem;">A refundable security deposit pre-authorization is required at vehicle pickup.</p>
+                </div>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-header">How can I book a car? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-body">You can easily request a vehicle online using our booking form or directly reach out via our official WhatsApp connection.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">What documents do I need? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-body">You will need your original valid driving license, passport/national ID card, and a valid credit or debit card for the deposit.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">What is the minimum rental period? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-body">Our minimum rental period is 24 hours (1 full day). Partial-day rentals are charged at the full daily rate.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Do you offer airport pickup? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-body">Yes, we provide 24/7 airport pickup and drop-off options at specified terminal locations.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Is insurance included? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-body">Basic standard third-party coverage is included in all rentals. Comprehensive protection packages can be added optionally.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Visual Experience</span>
+                <h2 class="section-title">DriveGo Gallery</h2>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80" alt="Gallery Car 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=500&q=80" alt="Gallery Car 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=500&q=80" alt="Gallery Car 3"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541348263662-e082662d82da?auto=format&fit=crop&w=500&q=80" alt="Gallery Car 4"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=500&q=80" alt="Gallery Car 5"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=500&q=80" alt="Gallery Car 6"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="booking">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Reservation</span>
+                <h2 class="section-title">Book Your Car Today</h2>
+            </div>
+
+            <form id="main-booking-form" style="max-width: 800px; margin: 0 auto; background: var(--bg-light); padding: 40px; border-radius: var(--radius-md);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="book-name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="book-email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="book-phone" class="form-control" placeholder="0348 3921807" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Vehicle Selection</label>
+                        <select id="book-car" class="form-control" required>
+                            <option value="">Select Car</option>
+                            <option value="Toyota Corolla">Toyota Corolla</option>
+                            <option value="Honda Civic">Honda Civic</option>
+                            <option value="Toyota Fortuner">Toyota Fortuner</option>
+                            <option value="Kia Sportage">Kia Sportage</option>
+                            <option value="Hyundai Tucson">Hyundai Tucson</option>
+                            <option value="Toyota Yaris">Toyota Yaris</option>
+                            <option value="Mercedes-Benz E-Class">Mercedes-Benz E-Class</option>
+                            <option value="Toyota Hiace">Toyota Hiace</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pick-up Location</label>
+                        <input type="text" id="book-pickup-loc" class="form-control" placeholder="Lahore, Karachi or airport" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Drop-off Location</label>
+                        <input type="text" id="book-dropoff-loc" class="form-control" placeholder="City or Airport" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pick-up Date</label>
+                        <input type="date" id="book-pdate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Return Date</label>
+                        <input type="date" id="book-rdate" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 16px;">
+                    <label>Additional Requirements</label>
+                    <textarea id="book-notes" class="form-control" rows="3" placeholder="Flight number, special requests..."></textarea>
+                </div>
+
+                <div style="margin-top: 24px; display: flex; gap: 16px; flex-wrap: wrap;">
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Request Reservation</button>
+                    <button type="button" id="whatsapp-direct-btn" class="btn btn-dark" style="background: #25D366; color: white; border: none;"><i class="fab fa-whatsapp"></i> Book via WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="section-padding section-bg-alt" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Reach Us</span>
+                <h2 class="section-title">Get In Touch</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>Contact Information</h3>
+                    <p style="margin-bottom: 24px; color: var(--text-muted);">Have questions regarding rentals, fleets, or long-term leases? Contact us anytime.</p>
+
+                    <div class="contact-detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Office Address</strong>
+                            <p>Main Boulevard, Gulberg III, Lahore, Pakistan</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Phone Number</strong>
+                            <p><a href="tel:+923483921807">0348 3921807</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp Support</strong>
+                            <p><a href="https://wa.me/923483921807" target="_blank">+92348 3921807</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Address</strong>
+                            <p><a href="mailto:info@drivego.com">info@drivego.com</a></p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <a href="tel:+923483921807" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+                        <a href="https://wa.me/923483921807" target="_blank" class="btn btn-dark"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <div style="border-radius: var(--radius-md); overflow: hidden; height: 100%; min-height: 350px;">
+                    <iframe title="Demo Map Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.35338181363!2d67.03080831500445!3d24.85172298405786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUxJzA2LjIiTiA2N8KwMDEnNTguOCJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: #ffffff; margin-bottom: 16px;">🚗 Drive<span>Go</span></a>
+                    <p style="color: #a0aec0; font-size: 0.9rem;">Drive Your Journey Your Way. Premium vehicles, flexible terms, and reliable 24/7 service.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Vehicles</h4>
+                    <ul>
+                        <li><a href="#cars">Economy Cars</a></li>
+                        <li><a href="#cars">Executive Sedans</a></li>
+                        <li><a href="#cars">Family SUVs</a></li>
+                        <li><a href="#cars">Luxury Fleet</a></li>
+                        <li><a href="#cars">Passenger Vans</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About DriveGo</a></li>
+                        <li><a href="#services">Rental Services</a></li>
+                        <li><a href="#locations">Station Locations</a></li>
+                        <li><a href="#reviews">Customer Reviews</a></li>
+                        <li><a href="#faq">Rental Policies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Support</h4>
+                    <p style="color: #a0aec0; font-size: 0.9rem;"><i class="fas fa-phone"></i> 0348 3921807</p>
+                    <p style="color: #a0aec0; font-size: 0.9rem; margin-top: 8px;"><i class="fab fa-whatsapp"></i> 0348 3921807</p>
+                    <p style="color: #a0aec0; font-size: 0.9rem; margin-top: 8px;"><i class="fas fa-envelope"></i> info@drivego.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DriveGo Car Rentals. All Rights Reserved. Demo Frontend Portfolio Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-btn lightbox-close" id="lb-close">&times;</button>
+        <button class="lightbox-btn lightbox-prev" id="lb-prev"><i class="fas fa-chevron-left"></i></button>
+        <img src="" alt="Enlarged gallery item" class="lightbox-img" id="lb-img">
+        <button class="lightbox-btn lightbox-next" id="lb-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div class="modal-overlay" id="details-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div id="modal-content">
+                </div>
+        </div>
+    </div>
+
+    <button id="back-to-top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="toast" id="toast">Notification Message</div>
+
+    <script>
+        /* ==========================================================================
+           CAR DATA ARRAY
+           ========================================================================== */
+        const CARS_DATA = [
+            {
+                id: 1,
+                name: 'Toyota Corolla',
+                category: 'Sedan',
+                transmission: 'Automatic',
+                seats: 5,
+                fuel: 'Petrol',
+                price: 5000,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80',
+                doors: 4,
+                ac: true,
+                luggage: '2 Bags'
+            },
+            {
+                id: 2,
+                name: 'Honda Civic',
+                category: 'Sedan',
+                transmission: 'Automatic',
+                seats: 5,
+                fuel: 'Petrol',
+                price: 5500,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=600&q=80',
+                doors: 4,
+                ac: true,
+                luggage: '2 Bags'
+            },
+            {
+                id: 3,
+                name: 'Toyota Fortuner',
+                category: 'SUV',
+                transmission: 'Automatic',
+                seats: 7,
+                fuel: 'Diesel',
+                price: 11000,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80',
+                doors: 5,
+                ac: true,
+                luggage: '4 Bags'
+            },
+            {
+                id: 4,
+                name: 'Kia Sportage',
+                category: 'SUV',
+                transmission: 'Automatic',
+                seats: 5,
+                fuel: 'Petrol',
+                price: 8500,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80',
+                doors: 5,
+                ac: true,
+                luggage: '3 Bags'
+            },
+            {
+                id: 5,
+                name: 'Hyundai Tucson',
+                category: 'SUV',
+                transmission: 'Automatic',
+                seats: 5,
+                fuel: 'Hybrid',
+                price: 9000,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80',
+                doors: 5,
+                ac: true,
+                luggage: '3 Bags'
+            },
+            {
+                id: 6,
+                name: 'Toyota Yaris',
+                category: 'Economy',
+                transmission: 'Automatic',
+                seats: 5,
+                fuel: 'Petrol',
+                price: 4000,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80',
+                doors: 4,
+                ac: true,
+                luggage: '1 Bag'
+            },
+            {
+                id: 7,
+                name: 'Mercedes-Benz E-Class',
+                category: 'Luxury',
+                transmission: 'Automatic',
+                seats: 5,
+                fuel: 'Petrol',
+                price: 15000,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80',
+                doors: 4,
+                ac: true,
+                luggage: '3 Bags'
+            },
+            {
+                id: 8,
+                name: 'Toyota Hiace',
+                category: 'Van',
+                transmission: 'Manual',
+                seats: 12,
+                fuel: 'Diesel',
+                price: 12000,
+                available: true,
+                image: 'https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=600&q=80',
+                doors: 4,
+                ac: true,
+                luggage: '6 Bags'
+            }
+        ];
+
+        const WHATSAPP_NUMBER = '923483921807';
+
+        function formatPKR(amount) {
+            return `PKR ${Number(amount).toLocaleString('en-PK')}`;
+        }
+
+        function initImageFallbacks() {
+            document.querySelectorAll('img').forEach(image => {
+                const removeBrokenImage = () => {
+                    const removable = image.closest('.car-card, .location-card, .gallery-item, .testimonial-slide') || image;
+                    removable.remove();
+                };
+                image.addEventListener('error', removeBrokenImage, { once: true });
+                if (image.complete && image.naturalWidth === 0) removeBrokenImage();
+            });
+        }
+
+        /* DOM ELEMENTS INITIALIZATION */
+        document.addEventListener('DOMContentLoaded', () => {
+            initNavbar();
+            initCarsRender(CARS_DATA);
+            initImageFallbacks();
+            initFilterAndSort();
+            initCalculator();
+            initReviewsSlider();
+            initFAQ();
+            initLightbox();
+            initBookingForm();
+            initStatsCounter();
+            initScrollEffects();
+        });
+
+        /* 1. NAVBAR & MOBILE TOGGLE */
+        function initNavbar() {
+            const toggle = document.getElementById('mobile-toggle');
+            const menu = document.getElementById('nav-menu');
+            const navbar = document.getElementById('navbar');
+
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        /* 2. CARS RENDER & MODAL DETAILED VIEW */
+        function initCarsRender(cars) {
+            const container = document.getElementById('cars-container');
+            container.innerHTML = '';
+
+            if(cars.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No vehicles matching your current criteria.</p>';
+                return;
+            }
+
+            cars.forEach(car => {
+                const card = document.createElement('div');
+                card.className = 'car-card';
+                card.innerHTML = `
+                    <div class="car-image-box">
+                        <img src="${car.image}" alt="${car.name}">
+                        <span class="badge ${car.available ? 'badge-success' : 'badge-warning'} car-badge">
+                            ${car.available ? 'Available' : 'Booked'}
+                        </span>
+                    </div>
+                    <div class="car-content">
+                        <span class="car-category">${car.category}</span>
+                        <h3 class="car-title">${car.name}</h3>
+                        <div class="car-specs">
+                            <div class="car-spec-item"><i class="fas fa-cog"></i>${car.transmission}</div>
+                            <div class="car-spec-item"><i class="fas fa-user"></i>${car.seats} Seats</div>
+                            <div class="car-spec-item"><i class="fas fa-gas-pump"></i>${car.fuel}</div>
+                        </div>
+                        <div class="car-price-row">
+                            <div class="car-price">${formatPKR(car.price)} <span>/ day</span></div>
+                        </div>
+                        <div class="car-actions">
+                            <button class="btn btn-dark" onclick="openDetailsModal(${car.id})">Details</button>
+                            <a href="#booking" onclick="preselectCar('${car.name}')" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            initImageFallbacks();
+        }
+
+        /* 3. FILTERS AND SORTING */
+        function initFilterAndSort() {
+            const typeFilter = document.getElementById('filter-type');
+            const transFilter = document.getElementById('filter-trans');
+            const fuelFilter = document.getElementById('filter-fuel');
+            const priceFilter = document.getElementById('filter-price');
+            const sortBy = document.getElementById('sort-by');
+
+            function applyFilters() {
+                let filtered = [...CARS_DATA];
+
+                if (typeFilter.value !== 'All') {
+                    filtered = filtered.filter(c => c.category === typeFilter.value);
+                }
+                if (transFilter.value !== 'All') {
+                    filtered = filtered.filter(c => c.transmission === transFilter.value);
+                }
+                if (fuelFilter.value !== 'All') {
+                    filtered = filtered.filter(c => c.fuel === fuelFilter.value);
+                }
+                if (priceFilter.value !== 'All') {
+                    if (priceFilter.value === 'under-50') filtered = filtered.filter(c => c.price < 5000);
+                    else if (priceFilter.value === '50-100') filtered = filtered.filter(c => c.price >= 5000 && c.price <= 10000);
+                    else if (priceFilter.value === '100-plus') filtered = filtered.filter(c => c.price > 10000);
+                }
+
+                if (sortBy.value === 'low-high') {
+                    filtered.sort((a,b) => a.price - b.price);
+                } else if (sortBy.value === 'high-low') {
+                    filtered.sort((a,b) => b.price - a.price);
+                }
+
+                initCarsRender(filtered);
+            }
+
+            [typeFilter, transFilter, fuelFilter, priceFilter, sortBy].forEach(element => {
+                element.addEventListener('change', applyFilters);
+            });
+        }
+
+        /* 4. MODAL POPUP FUNCTIONALITY */
+        function openDetailsModal(carId) {
+            const car = CARS_DATA.find(c => c.id === carId);
+            if (!car) return;
+
+            const modal = document.getElementById('details-modal');
+            const content = document.getElementById('modal-content');
+
+            content.innerHTML = `
+                <img src="${car.image}" alt="${car.name}" onerror="this.remove()" style="width:100%; height:250px; border-radius:var(--radius-md); margin-bottom:20px;">
+                <h2>${car.name}</h2>
+                <span class="badge badge-success" style="margin-bottom:15px;">${car.category}</span>
+                <p style="font-size:1.5rem; font-weight:800; color:var(--accent);">${formatPKR(car.price)} / day</p>
+                <hr style="margin:15px 0; border:none; border-top:1px solid var(--border-color);">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:20px;">
+                    <div><strong>Transmission:</strong> ${car.transmission}</div>
+                    <div><strong>Seats:</strong> ${car.seats} Person</div>
+                    <div><strong>Fuel Type:</strong> ${car.fuel}</div>
+                    <div><strong>Doors:</strong> ${car.doors}</div>
+                    <div><strong>Air Conditioning:</strong> ${car.ac ? 'Yes' : 'No'}</div>
+                    <div><strong>Luggage:</strong> ${car.luggage}</div>
+                </div>
+                <h4>Rental Requirements</h4>
+                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:20px;">Valid driving license, passport/national identity card, security deposit required upon pickup.</p>
+                <a href="#booking" onclick="closeDetailsModal(); preselectCar('${car.name}')" class="btn btn-primary btn-block">Reserve This Car</a>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('details-modal').classList.remove('active');
+        }
+
+        document.getElementById('modal-close').addEventListener('click', closeDetailsModal);
+
+        /* 5. BOOKING CALCULATOR */
+        function initCalculator() {
+            const vehicleSelect = document.getElementById('calc-vehicle');
+            const pickupInput = document.getElementById('calc-pickup');
+            const returnInput = document.getElementById('calc-return');
+            const extrasCheckboxes = document.querySelectorAll('.calc-extra');
+
+            // Set initial dates
+            const today = new Date().toISOString().split('T')[0];
+            const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+            pickupInput.value = today;
+            returnInput.value = tomorrow;
+
+            function calculateTotal() {
+                const pricePerDay = parseFloat(vehicleSelect.value);
+                const d1 = new Date(pickupInput.value);
+                const d2 = new Date(returnInput.value);
+
+                let days = 1;
+                if (d2 > d1) {
+                    const diffTime = Math.abs(d2 - d1);
+                    days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                }
+
+                let extrasPerDay = 0;
+                extrasCheckboxes.forEach(cb => {
+                    if (cb.checked) extrasPerDay += parseFloat(cb.value);
+                });
+
+                const carTotal = pricePerDay * days;
+                const extrasTotal = extrasPerDay * days;
+                const grandTotal = carTotal + extrasTotal;
+
+                document.getElementById('summary-days').innerText = days;
+                document.getElementById('summary-base').innerText = formatPKR(carTotal);
+                document.getElementById('summary-extras').innerText = formatPKR(extrasTotal);
+                document.getElementById('summary-total').innerText = formatPKR(grandTotal);
+            }
+
+            [vehicleSelect, pickupInput, returnInput].forEach(el => el.addEventListener('change', calculateTotal));
+            extrasCheckboxes.forEach(cb => cb.addEventListener('change', calculateTotal));
+            calculateTotal();
+        }
+
+        /* 6. REVIEWS SLIDER */
+        function initReviewsSlider() {
+            const track = document.getElementById('testimonial-track');
+            const prev = document.getElementById('prev-review');
+            const next = document.getElementById('next-review');
+            let index = 0;
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            next.addEventListener('click', () => {
+                index = (index + 1) % 3;
+                updateSlider();
+            });
+
+            prev.addEventListener('click', () => {
+                index = (index - 1 + 3) % 3;
+                updateSlider();
+            });
+
+            setInterval(() => {
+                index = (index + 1) % 3;
+                updateSlider();
+            }, 6000);
+        }
+
+        /* 7. FAQ ACCORDION */
+        function initFAQ() {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                item.querySelector('.faq-header').addEventListener('click', () => {
+                    items.forEach(other => {
+                        if (other !== item) other.classList.remove('active');
+                    });
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
+        /* 8. LIGHTBOX GALLERY */
+        function initLightbox() {
+            const galleryImages = document.querySelectorAll('.gallery-item img');
+            const lightbox = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lb-img');
+            let currentIdx = 0;
+
+            galleryImages.forEach((img, idx) => {
+                img.addEventListener('click', () => {
+                    currentIdx = idx;
+                    lbImg.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            document.getElementById('lb-close').addEventListener('click', () => lightbox.classList.remove('active'));
+            document.getElementById('lb-next').addEventListener('click', () => {
+                currentIdx = (currentIdx + 1) % galleryImages.length;
+                lbImg.src = galleryImages[currentIdx].src;
+            });
+            document.getElementById('lb-prev').addEventListener('click', () => {
+                currentIdx = (currentIdx - 1 + galleryImages.length) % galleryImages.length;
+                lbImg.src = galleryImages[currentIdx].src;
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') lightbox.classList.remove('active');
+            });
+        }
+
+        /* 9. BOOKING FORM & WHATSAPP */
+        function preselectCar(carName) {
+            const select = document.getElementById('book-car');
+            if (select) select.value = carName;
+        }
+
+        function initBookingForm() {
+            const form = document.getElementById('main-booking-form');
+            const waBtn = document.getElementById('whatsapp-direct-btn');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const details = [
+                    'Assalam-o-Alaikum DriveGo, mujhe car booking karni hai.',
+                    `Name: ${document.getElementById('book-name').value}`,
+                    `Email: ${document.getElementById('book-email').value}`,
+                    `Phone: ${document.getElementById('book-phone').value}`,
+                    `Car: ${document.getElementById('book-car').value}`,
+                    `Pick-up: ${document.getElementById('book-pickup-loc').value}`,
+                    `Drop-off: ${document.getElementById('book-dropoff-loc').value}`,
+                    `Pick-up date: ${document.getElementById('book-pdate').value}`,
+                    `Return date: ${document.getElementById('book-rdate').value}`,
+                    `Additional requirements: ${document.getElementById('book-notes').value || 'None'}`
+                ].join('\n');
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(details)}`, '_blank');
+            });
+
+            waBtn.addEventListener('click', () => {
+                const text = encodeURIComponent('Assalam-o-Alaikum DriveGo, mujhe car rent karni hai. Please available cars aur rates share kar dein.');
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+            });
+        }
+
+        /* 10. STATS COUNTER ANIMATION */
+        function initStatsCounter() {
+            const counters = document.querySelectorAll('.counter');
+            let animated = false;
+
+            window.addEventListener('scroll', () => {
+                const statsSection = document.querySelector('.stats-section');
+                if(!statsSection) return;
+                const pos = statsSection.getBoundingClientRect().top;
+                const winHeight = window.innerHeight;
+
+                if (pos < winHeight && !animated) {
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const speed = target / 50;
+
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count) + '+';
+                                setTimeout(updateCount, 30);
+                            } else {
+                                counter.innerText = target + '+';
+                            }
+                        };
+                        updateCount();
+                    });
+                    animated = true;
+                }
+            });
+        }
+
+        /* 11. SCROLL EFFECTS & TOAST */
+        function initScrollEffects() {
+            const progress = document.getElementById('scroll-progress');
+            const backToTop = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const currentScroll = window.scrollY;
+                progress.style.width = (currentScroll / totalScroll) * 100 + '%';
+
+                if (currentScroll > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
